@@ -357,3 +357,4 @@ echo ""
 echo -e "${YELLOW}View alerts in your Wazuh Dashboard at: http://$WAZUH_MANAGER${NC}"
 echo -e "${YELLOW}Filter by: rule.groups:suricata${NC}"
 echo ""
+
