@@ -35,17 +35,29 @@ Before running the installer, ensure you have:
 - ✅ **Internet connection**
 - ✅ **Wazuh Manager IP** (ask your instructor)
 
-### One-Liner Installation
+### Simple Installation (Recommended)
+
+**Clone the repository and run the installer:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/install-suricata.sh | sudo bash
+# Clone the repository
+git clone https://github.com/anombyte93/suricata-wazuh-docker.git
+
+# Enter the directory
+cd suricata-wazuh-docker
+
+# Run the installer
+sudo ./install-suricata.sh
 ```
 
-Or download and run manually:
+### Alternative: Direct Download
 
 ```bash
 # Download the installer
-wget https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/install-suricata.sh
+wget https://github.com/anombyte93/suricata-wazuh-docker/raw/main/install-suricata.sh
+
+# Fix line endings (just in case)
+sed -i 's/\r$//' install-suricata.sh
 
 # Make it executable
 chmod +x install-suricata.sh
@@ -144,15 +156,26 @@ This project includes a comprehensive test suite to verify everything works with
 
 ### Run All Tests
 
-```bash
-# Download test scripts
-wget https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/test-suricata.sh
-wget https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/generate-test-traffic.sh
-wget https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/validate-eve-json.sh
+**If you cloned the repository, the test scripts are already there:**
 
-chmod +x test-suricata.sh generate-test-traffic.sh validate-eve-json.sh
+```bash
+cd suricata-wazuh-docker
 
 # Run full test suite (60+ tests)
+sudo ./test-suricata.sh
+
+# Or generate test traffic
+./generate-test-traffic.sh
+
+# Or validate eve.json
+./validate-eve-json.sh
+```
+
+**If you need to download test scripts separately:**
+
+```bash
+git clone https://github.com/anombyte93/suricata-wazuh-docker.git
+cd suricata-wazuh-docker
 sudo ./test-suricata.sh
 ```
 
@@ -400,15 +423,13 @@ docker stats suricata-wazuh
 For multiple student machines:
 
 ```bash
-# Create a config file
-cat > wazuh-config.txt << EOF
-WAZUH_MANAGER=192.168.1.100
-EOF
+# All students run the same simple commands:
+git clone https://github.com/anombyte93/suricata-wazuh-docker.git
+cd suricata-wazuh-docker
+sudo ./install-suricata.sh
 
-# Distribute to students
-# Students run:
-export WAZUH_MANAGER=$(cat wazuh-config.txt)
-curl -fsSL https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/install-suricata.sh | sudo bash
+# During installation, they'll be prompted for your Wazuh Manager IP
+# (Tell them the IP beforehand)
 ```
 
 ### Monitoring Student Progress
@@ -505,7 +526,9 @@ After installation, verify:
 
 ```bash
 # Installation
-curl -fsSL https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/install-suricata.sh | sudo bash
+git clone https://github.com/anombyte93/suricata-wazuh-docker.git
+cd suricata-wazuh-docker
+sudo ./install-suricata.sh
 
 # View alerts
 docker logs -f suricata-wazuh
