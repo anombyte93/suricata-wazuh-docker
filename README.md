@@ -38,14 +38,14 @@ Before running the installer, ensure you have:
 ### One-Liner Installation
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/suricata-wazuh-docker/main/install-suricata.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/install-suricata.sh | sudo bash
 ```
 
 Or download and run manually:
 
 ```bash
 # Download the installer
-wget https://raw.githubusercontent.com/YOUR_USERNAME/suricata-wazuh-docker/main/install-suricata.sh
+wget https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/install-suricata.sh
 
 # Make it executable
 chmod +x install-suricata.sh
@@ -146,9 +146,9 @@ This project includes a comprehensive test suite to verify everything works with
 
 ```bash
 # Download test scripts
-wget https://raw.githubusercontent.com/YOUR_USERNAME/suricata-wazuh-docker/main/test-suricata.sh
-wget https://raw.githubusercontent.com/YOUR_USERNAME/suricata-wazuh-docker/main/generate-test-traffic.sh
-wget https://raw.githubusercontent.com/YOUR_USERNAME/suricata-wazuh-docker/main/validate-eve-json.sh
+wget https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/test-suricata.sh
+wget https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/generate-test-traffic.sh
+wget https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/validate-eve-json.sh
 
 chmod +x test-suricata.sh generate-test-traffic.sh validate-eve-json.sh
 
@@ -408,7 +408,7 @@ EOF
 # Distribute to students
 # Students run:
 export WAZUH_MANAGER=$(cat wazuh-config.txt)
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/suricata-wazuh-docker/main/install-suricata.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/install-suricata.sh | sudo bash
 ```
 
 ### Monitoring Student Progress
@@ -505,7 +505,7 @@ After installation, verify:
 
 ```bash
 # Installation
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/suricata-wazuh-docker/main/install-suricata.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/anombyte93/suricata-wazuh-docker/main/install-suricata.sh | sudo bash
 
 # View alerts
 docker logs -f suricata-wazuh
